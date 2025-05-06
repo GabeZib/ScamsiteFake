@@ -24,6 +24,9 @@ export default function Home() {
   const [showSurveyForm, setShowSurveyForm] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showNotificationPopup, setShowNotificationPopup] = useState(false);
+  const [showCouponPopup, setShowCouponPopup] = useState(false);
+  const [showDownloadPopup, setShowDownloadPopup] = useState(false);
+  const [showPrizePopup, setShowPrizePopup] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
 
   // Function to trigger random popups
@@ -59,6 +62,21 @@ export default function Home() {
     const secondPopupTimeout = setTimeout(() => {
       triggerRandomPopup();
     }, 15000);
+    
+    // Show coupon popup after delay
+    const couponPopupTimeout = setTimeout(() => {
+      setShowCouponPopup(true);
+    }, 8000);
+    
+    // Show download popup after delay
+    const downloadPopupTimeout = setTimeout(() => {
+      setShowDownloadPopup(true);
+    }, 12000);
+    
+    // Show prize popup after delay
+    const prizePopupTimeout = setTimeout(() => {
+      setShowPrizePopup(true);
+    }, 20000);
 
     // We'll only show the disclaimer after compromising actions
     // No automatic or timed disclaimer
@@ -67,6 +85,9 @@ export default function Home() {
       clearTimeout(notificationTimeout);
       clearTimeout(firstPopupTimeout);
       clearTimeout(secondPopupTimeout);
+      clearTimeout(couponPopupTimeout);
+      clearTimeout(downloadPopupTimeout);
+      clearTimeout(prizePopupTimeout);
     };
   }, [setShowNotificationPopup, triggerRandomPopup]);
 
@@ -410,6 +431,110 @@ export default function Home() {
         </div>
       )}
       
+      {/* Coupon Popup */}
+      {showCouponPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+          <div className="bg-white p-6 max-w-md relative border-8 border-[hsl(var(--scam-green))]">
+            <button 
+              onClick={() => setShowCouponPopup(false)}
+              className="absolute top-2 right-2 text-black font-bold text-xl"
+            >
+              &times;
+            </button>
+            <div className="text-center">
+              <div className="text-green-500 text-6xl mb-4 animate-bounce">🎁</div>
+              <h2 className="text-2xl font-bold text-[hsl(var(--scam-red))] mb-2 blink">EXCLUSIVE COUPON!!!</h2>
+              <p className="mb-4">Enter your email now to receive a 90% DISCOUNT on your next purchase!</p>
+              <div className="mb-4">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="w-full border border-gray-300 p-2 mb-2"
+                />
+                <button 
+                  onClick={() => {
+                    setShowCouponPopup(false);
+                    // Show disclaimer when user submits email information
+                    setShowDisclaimer(true);
+                  }}
+                  className="bg-[hsl(var(--scam-green))] text-white px-4 py-2 w-full mb-2 font-bold"
+                >
+                  GET MY COUPON NOW!
+                </button>
+              </div>
+              <p className="text-xs text-gray-500">Limited time offer. Expires in 5 minutes!</p>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Download Popup */}
+      {showDownloadPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+          <div className="bg-white p-6 max-w-md relative border-8 border-[hsl(var(--scam-blue))]">
+            <button 
+              onClick={() => setShowDownloadPopup(false)}
+              className="absolute top-2 right-2 text-black font-bold text-xl"
+            >
+              &times;
+            </button>
+            <div className="text-center">
+              <div className="text-blue-500 text-6xl mb-4">💾</div>
+              <h2 className="text-2xl font-bold text-[hsl(var(--scam-blue))] mb-2">UPDATE REQUIRED!</h2>
+              <p className="mb-4">Your Flash Player needs updating to view this content! Click below to download now!</p>
+              <button 
+                onClick={() => {
+                  setShowDownloadPopup(false);
+                  // Show disclaimer when user attempts a download
+                  setShowDisclaimer(true);
+                }}
+                className="bg-[hsl(var(--scam-blue))] text-white px-4 py-2 w-full mb-2 font-bold"
+              >
+                DOWNLOAD UPDATE NOW
+              </button>
+              <p className="text-xs text-gray-500">Adobe Flash Player (2023) - Secure Download</p>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Prize Popup */}
+      {showPrizePopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20">
+          <div className="bg-white p-6 max-w-md relative border-8 border-[hsl(var(--scam-purple))]">
+            <button 
+              onClick={() => setShowPrizePopup(false)}
+              className="absolute top-2 right-2 text-black font-bold text-xl"
+            >
+              &times;
+            </button>
+            <div className="text-center">
+              <div className="text-yellow-500 text-6xl mb-4 animate-spin">🏆</div>
+              <h2 className="text-2xl font-bold text-[hsl(var(--scam-purple))] mb-2 blink">YOU'VE WON A PRIZE!!!</h2>
+              <p className="mb-4">Spin the wheel to see what you've won! Prizes include MacBooks, iPhones, and Amazon Gift Cards!</p>
+              <div className="mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1560073744-7643b964bdf8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=300&q=80" 
+                  alt="Prize wheel" 
+                  className="w-full mb-2"
+                  style={{ filter: "saturate(200%)" }}
+                />
+                <button 
+                  onClick={() => {
+                    setShowPrizePopup(false);
+                    // Show disclaimer when user attempts to claim a prize
+                    setShowDisclaimer(true);
+                  }}
+                  className="bg-[hsl(var(--scam-purple))] text-white px-4 py-2 w-full mb-2 font-bold"
+                >
+                  SPIN NOW TO CLAIM!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Educational Disclaimer */}
       {showDisclaimer && <Disclaimer onClose={() => setShowDisclaimer(false)} />}
 
