@@ -1,6 +1,6 @@
 interface PopupAdProps {
   id: string;
-  type: "offer" | "warning" | "dating";
+  type: "offer" | "warning" | "prize";
   title: string;
   message: string;
   image?: string;
@@ -18,8 +18,8 @@ export default function PopupAd({ id, type, title, message, image, onClose }: Po
         return "bg-white";
       case "warning":
         return "bg-red-100 border-4 border-red-600";
-      case "dating":
-        return "bg-blue-100";
+      case "prize":
+        return "bg-yellow-100 border-4 border-yellow-500";
       default:
         return "bg-white";
     }
@@ -45,7 +45,7 @@ export default function PopupAd({ id, type, title, message, image, onClose }: Po
         {type !== "warning" && (
           <>
             {image && <img src={image} alt={title} className="w-full mb-2" />}
-            <h2 className={`text-2xl font-bold ${type === "dating" ? "text-pink-600" : "text-red-600"} mb-2`}>{title}</h2>
+            <h2 className={`text-2xl font-bold ${type === "prize" ? "text-yellow-600" : "text-red-600"} mb-2`}>{title}</h2>
           </>
         )}
         
@@ -85,12 +85,12 @@ export default function PopupAd({ id, type, title, message, image, onClose }: Po
           </>
         )}
         
-        {type === "dating" && (
+        {type === "prize" && (
           <button 
             onClick={handleClose}
-            className="bg-pink-500 text-white px-4 py-2 w-full"
+            className="bg-yellow-500 text-white px-4 py-2 w-full font-bold"
           >
-            CHAT NOW!
+            CLAIM MY PRIZE!
           </button>
         )}
       </div>

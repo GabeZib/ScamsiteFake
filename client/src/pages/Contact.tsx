@@ -236,9 +236,9 @@ export default function Contact() {
       {popups.popup1 && (
         <PopupAd 
           id="popup-ad-1"
-          type="dating"
-          title="WIN A FREE VACATION!!!"
-          message="Congratulations! You've been selected to win a 7-day all-inclusive resort stay! Just enter your credit card to verify your eligibility!"
+          type="offer"
+          title="WIN A FREE LAPTOP!!!"
+          message="Congratulations! You've been selected to win a brand new laptop for your school! Just complete a quick survey to verify your eligibility!"
           image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80"
           onClose={() => {
             setPopups({

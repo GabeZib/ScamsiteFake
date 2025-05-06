@@ -351,10 +351,10 @@ export default function Home() {
       {popups.popup3 && (
         <PopupAd 
           id="popup-ad-3"
-          type="dating"
-          title="HOT SINGLES IN YOUR AREA!"
-          message="Click now to chat with lonely people just 3.2 miles away from you!"
-          image="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=60"
+          type="prize"
+          title="FREE GIFT CARD GIVEAWAY!"
+          message="You've been selected to receive a $500 shopping gift card! Complete a quick survey to claim now!"
+          image="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=200&q=80"
           onClose={() => {
             setPopups({
               ...popups,
