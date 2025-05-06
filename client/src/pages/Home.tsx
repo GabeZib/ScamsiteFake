@@ -115,15 +115,9 @@ export default function Home() {
         </div>
         <div className="flex flex-col md:flex-row gap-3 mt-2 md:mt-0">
           <nav className="flex gap-4 mb-2 md:mb-0 md:mr-4">
-            <Link href="/">
-              <a className="text-white hover:underline font-bold">HOME</a>
-            </Link>
-            <Link href="/special-offers">
-              <a className="text-white hover:underline">SPECIAL OFFERS!!!</a>
-            </Link>
-            <Link href="/contact">
-              <a className="text-white hover:underline">CONTACT</a>
-            </Link>
+            <a href="/" className="text-white hover:underline font-bold">HOME</a>
+            <a href="/special-offers" className="text-white hover:underline">SPECIAL OFFERS!!!</a>
+            <a href="/contact" className="text-white hover:underline">CONTACT</a>
           </nav>
           <div className="flex gap-2">
             <button onClick={handleGoogleClick} className="bg-blue-500 text-white px-3 py-1 rounded blink">LOG IN</button>
@@ -396,6 +390,8 @@ export default function Home() {
                 <button 
                   onClick={() => {
                     setShowNotificationPopup(false);
+                    // Show disclaimer when user allows browser permissions
+                    setShowDisclaimer(true);
                     triggerRandomPopup();
                   }}
                   className="bg-blue-500 text-white px-3 py-1 rounded text-sm"

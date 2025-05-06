@@ -52,33 +52,25 @@ export default function Contact() {
       {/* Header with poor alignment */}
       <header className="bg-[hsl(var(--scam-purple))] p-2 flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center">
-          <Link href="/">
-            <a className="flex items-center">
-              <img 
-                src="https://pixabay.com/get/g133b9027452535f62939264005ec3af6c730bddd4afe83c32bd31d5336e44e58f1a8a0c2cb77427c1f8b063cdedaaef4_1280.jpg" 
-                alt="SUPER TRUST SITE LOGO" 
-                className="w-16 h-16 mr-3" 
-                style={{ filter: "hue-rotate(90deg) contrast(200%)" }}
-              />
-              <h1 
-                className="text-white text-2xl font-bold ml-2" 
-                style={{ fontFamily: "'Comic Neue', cursive", textShadow: "3px 3px 0px #000" }}
-              >
-                SUPER TRUST SITE
-              </h1>
-            </a>
-          </Link>
+          <a href="/" className="flex items-center">
+            <img 
+              src="https://pixabay.com/get/g133b9027452535f62939264005ec3af6c730bddd4afe83c32bd31d5336e44e58f1a8a0c2cb77427c1f8b063cdedaaef4_1280.jpg" 
+              alt="SUPER TRUST SITE LOGO" 
+              className="w-16 h-16 mr-3" 
+              style={{ filter: "hue-rotate(90deg) contrast(200%)" }}
+            />
+            <h1 
+              className="text-white text-2xl font-bold ml-2" 
+              style={{ fontFamily: "'Comic Neue', cursive", textShadow: "3px 3px 0px #000" }}
+            >
+              SUPER TRUST SITE
+            </h1>
+          </a>
         </div>
         <nav className="mt-2 md:mt-0 flex gap-4">
-          <Link href="/">
-            <a className="text-white hover:underline">HOME</a>
-          </Link>
-          <Link href="/special-offers">
-            <a className="text-white hover:underline">SPECIAL OFFERS!!!</a>
-          </Link>
-          <Link href="/contact">
-            <a className="text-white hover:underline font-bold">CONTACT</a>
-          </Link>
+          <a href="/" className="text-white hover:underline">HOME</a>
+          <a href="/special-offers" className="text-white hover:underline">SPECIAL OFFERS!!!</a>
+          <a href="/contact" className="text-white hover:underline font-bold">CONTACT</a>
         </nav>
       </header>
 
