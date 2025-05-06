@@ -28,6 +28,10 @@ export default function Home() {
   const [showDownloadPopup, setShowDownloadPopup] = useState(false);
   const [showPrizePopup, setShowPrizePopup] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [disclaimerShown, setDisclaimerShown] = useState(() => {
+    // Check if disclaimer has been shown before using localStorage
+    return localStorage.getItem('disclaimerShown') === 'true';
+  });
 
   // Function to trigger random popups
   const triggerRandomPopup = useCallback(() => {
@@ -111,8 +115,10 @@ export default function Home() {
   const handleSurveySubmit = () => {
     setShowSurveyForm(false);
     setShowSuccessPopup(true);
-    // Show disclaimer after user submits personal information
-    setShowDisclaimer(true);
+    // Show disclaimer after user submits personal information, but only if it hasn't been shown before
+    if (!disclaimerShown) {
+      setShowDisclaimer(true);
+    }
   };
 
   return (
@@ -303,8 +309,10 @@ export default function Home() {
           }}
           onNext={() => {
             setShowGooglePopup(false);
-            // Show disclaimer after user submits login information
-            setShowDisclaimer(true);
+            // Show disclaimer after user submits login information, but only if it hasn't been shown before
+            if (!disclaimerShown) {
+              setShowDisclaimer(true);
+            }
             triggerRandomPopup();
           }}
         />
@@ -411,8 +419,10 @@ export default function Home() {
                 <button 
                   onClick={() => {
                     setShowNotificationPopup(false);
-                    // Show disclaimer when user allows browser permissions
-                    setShowDisclaimer(true);
+                    // Show disclaimer when user allows browser permissions, but only if it hasn't been shown before
+                    if (!disclaimerShown) {
+                      setShowDisclaimer(true);
+                    }
                     triggerRandomPopup();
                   }}
                   className="bg-blue-500 text-white px-3 py-1 rounded text-sm"
@@ -454,8 +464,10 @@ export default function Home() {
                 <button 
                   onClick={() => {
                     setShowCouponPopup(false);
-                    // Show disclaimer when user submits email information
-                    setShowDisclaimer(true);
+                    // Show disclaimer when user submits email information, but only if it hasn't been shown before
+                    if (!disclaimerShown) {
+                      setShowDisclaimer(true);
+                    }
                   }}
                   className="bg-[hsl(var(--scam-green))] text-white px-4 py-2 w-full mb-2 font-bold"
                 >
@@ -485,8 +497,10 @@ export default function Home() {
               <button 
                 onClick={() => {
                   setShowDownloadPopup(false);
-                  // Show disclaimer when user attempts a download
-                  setShowDisclaimer(true);
+                  // Show disclaimer when user attempts a download, but only if it hasn't been shown before
+                  if (!disclaimerShown) {
+                    setShowDisclaimer(true);
+                  }
                 }}
                 className="bg-[hsl(var(--scam-blue))] text-white px-4 py-2 w-full mb-2 font-bold"
               >
@@ -522,8 +536,10 @@ export default function Home() {
                 <button 
                   onClick={() => {
                     setShowPrizePopup(false);
-                    // Show disclaimer when user attempts to claim a prize
-                    setShowDisclaimer(true);
+                    // Show disclaimer when user attempts to claim a prize, but only if it hasn't been shown before
+                    if (!disclaimerShown) {
+                      setShowDisclaimer(true);
+                    }
                   }}
                   className="bg-[hsl(var(--scam-purple))] text-white px-4 py-2 w-full mb-2 font-bold"
                 >
@@ -536,7 +552,10 @@ export default function Home() {
       )}
 
       {/* Educational Disclaimer */}
-      {showDisclaimer && <Disclaimer onClose={() => setShowDisclaimer(false)} />}
+      {showDisclaimer && <Disclaimer onClose={() => {
+        setShowDisclaimer(false);
+        setDisclaimerShown(true);
+      }} />}
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white p-4 text-center text-xs">

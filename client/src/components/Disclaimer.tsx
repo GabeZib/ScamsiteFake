@@ -3,13 +3,19 @@ interface DisclaimerProps {
 }
 
 export default function Disclaimer({ onClose }: DisclaimerProps) {
+  const handleClose = () => {
+    // Set localStorage to remember that disclaimer has been shown
+    localStorage.setItem('disclaimerShown', 'true');
+    onClose();
+  };
+  
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
       <div className="bg-white p-6 rounded-lg max-w-2xl">
         <div className="flex justify-between items-start">
           <h2 className="text-2xl font-bold mb-4 text-blue-600">Internet Safety Educational Notice</h2>
           <button 
-            onClick={onClose}
+            onClick={handleClose}
             className="text-gray-500 hover:text-gray-700 text-xl"
           >
             &times;
@@ -47,7 +53,7 @@ export default function Disclaimer({ onClose }: DisclaimerProps) {
         
         <div className="flex justify-center mt-4">
           <button 
-            onClick={onClose}
+            onClick={handleClose}
             className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
           >
             I Understand - Continue Learning
