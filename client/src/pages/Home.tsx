@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "wouter";
 import { Marquee } from "@/components/ui/marquee";
 import FakeLogin from "@/components/FakeLogin";
 import FakeSurvey from "@/components/FakeSurvey";
@@ -112,9 +113,22 @@ export default function Home() {
             SUPER TRUST SITE
           </h1>
         </div>
-        <div className="flex gap-3 mt-2 md:mt-0">
-          <button onClick={handleGoogleClick} className="bg-blue-500 text-white px-3 py-1 rounded blink">LOG IN</button>
-          <button className="bg-green-500 text-white px-3 py-1 rounded">SINE UP FREE!!!</button>
+        <div className="flex flex-col md:flex-row gap-3 mt-2 md:mt-0">
+          <nav className="flex gap-4 mb-2 md:mb-0 md:mr-4">
+            <Link href="/">
+              <a className="text-white hover:underline font-bold">HOME</a>
+            </Link>
+            <Link href="/special-offers">
+              <a className="text-white hover:underline">SPECIAL OFFERS!!!</a>
+            </Link>
+            <Link href="/contact">
+              <a className="text-white hover:underline">CONTACT</a>
+            </Link>
+          </nav>
+          <div className="flex gap-2">
+            <button onClick={handleGoogleClick} className="bg-blue-500 text-white px-3 py-1 rounded blink">LOG IN</button>
+            <button className="bg-green-500 text-white px-3 py-1 rounded">SINE UP FREE!!!</button>
+          </div>
         </div>
       </header>
 

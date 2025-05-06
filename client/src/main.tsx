@@ -18,6 +18,8 @@ function App() {
         <Toaster />
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/special-offers" component={SpecialOffers} />
+          <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
       </TooltipProvider>
