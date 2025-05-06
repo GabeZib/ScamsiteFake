@@ -8,6 +8,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import SpecialOffers from "@/pages/SpecialOffers";
+import Contact from "@/pages/Contact";
 
 function App() {
   return (

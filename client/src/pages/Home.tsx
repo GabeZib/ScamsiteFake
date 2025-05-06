@@ -59,29 +59,15 @@ export default function Home() {
       triggerRandomPopup();
     }, 15000);
 
-    // Show disclaimer when user tries to leave the page
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      setShowDisclaimer(true);
-      e.preventDefault();
-      e.returnValue = '';
-      return '';
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    
-    // Show disclaimer after some time on the site
-    const disclaimerTimeout = setTimeout(() => {
-      setShowDisclaimer(true);
-    }, 30000); // Show after 30 seconds
+    // We'll only show the disclaimer after compromising actions
+    // No automatic or timed disclaimer
     
     return () => {
       clearTimeout(notificationTimeout);
       clearTimeout(firstPopupTimeout);
       clearTimeout(secondPopupTimeout);
-      clearTimeout(disclaimerTimeout);
-      window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, [setShowNotificationPopup, triggerRandomPopup, setShowDisclaimer]);
+  }, [setShowNotificationPopup, triggerRandomPopup]);
 
   const handleClaimClick = () => {
     setShowSurveyForm(true);
@@ -103,6 +89,8 @@ export default function Home() {
   const handleSurveySubmit = () => {
     setShowSurveyForm(false);
     setShowSuccessPopup(true);
+    // Show disclaimer after user submits personal information
+    setShowDisclaimer(true);
   };
 
   return (
@@ -286,6 +274,8 @@ export default function Home() {
           }}
           onNext={() => {
             setShowGooglePopup(false);
+            // Show disclaimer after user submits login information
+            setShowDisclaimer(true);
             triggerRandomPopup();
           }}
         />
