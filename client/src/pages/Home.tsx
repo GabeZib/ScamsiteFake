@@ -145,7 +145,7 @@ export default function Home() {
             <a href="/contact" className="text-white hover:underline">CONTACT</a>
           </nav>
           <div className="flex gap-2">
-            <button onClick={handleGoogleClick} className="bg-blue-500 text-white px-3 py-1 rounded blink">LOG IN</button>
+            <button onClick={handleGoogleClick} className="bg-blue-500 text-white px-3 py-1 rounded font-bold border border-red-500">LOG IN</button>
             <button className="bg-green-500 text-white px-3 py-1 rounded">SINE UP FREE!!!</button>
           </div>
         </div>
@@ -158,15 +158,15 @@ export default function Home() {
 
       {/* Main content area */}
       <main className="p-4">
-        {/* Congrats Banner */}
-        <div className="bg-[hsl(var(--scam-purple))] text-white text-center p-6 mb-6 blink">
+        {/* Congrats Banner - Epilepsy friendly version */}
+        <div className="bg-[hsl(var(--scam-purple))] text-white text-center p-6 mb-6">
           <h2 
             className="text-4xl font-bold" 
             style={{ fontFamily: "Impact" }}
           >
             CONGRATULATION'S!!! YOU ARE THE 1,000,000TH VISITOR!!!!
           </h2>
-          <p className="text-2xl mt-2 shake">CLAIM YOU'RE FREE PRIZE NOW!!!</p>
+          <p className="text-2xl mt-2 border-2 border-red-500 p-1">CLAIM YOU'RE FREE PRIZE NOW!!!</p>
         </div>
 
         {/* Timer */}
@@ -211,7 +211,7 @@ export default function Home() {
             {/* Fake Download Button */}
             <button 
               onClick={handleClaimClick}
-              className="w-full bg-[hsl(var(--scam-green))] text-white py-3 px-6 text-2xl font-bold rounded shadow-lg hover:bg-green-600 blink"
+              className="w-full bg-[hsl(var(--scam-green))] text-white py-3 px-6 text-2xl font-bold rounded shadow-lg hover:bg-green-600 border-2 border-red-500"
             >
               👇 CLICK HERE TO CLAIM NOW!!! 👇
             </button>
