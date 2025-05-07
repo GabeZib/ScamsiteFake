@@ -450,8 +450,8 @@ export default function Home() {
               &times;
             </button>
             <div className="text-center">
-              <div className="text-green-500 text-6xl mb-4 animate-bounce">🎁</div>
-              <h2 className="text-2xl font-bold text-[hsl(var(--scam-red))] mb-2 blink">EXCLUSIVE COUPON!!!</h2>
+              <div className="text-green-500 text-6xl mb-4">🎁</div>
+              <h2 className="text-2xl font-bold text-[hsl(var(--scam-red))] mb-2">EXCLUSIVE COUPON!!!</h2>
               <p className="mb-4">Enter your email now to receive a 90% DISCOUNT on your next purchase!</p>
               <div className="mb-4">
                 <input 
@@ -521,8 +521,8 @@ export default function Home() {
               &times;
             </button>
             <div className="text-center">
-              <div className="text-yellow-500 text-6xl mb-4 animate-spin">🏆</div>
-              <h2 className="text-2xl font-bold text-[hsl(var(--scam-purple))] mb-2 blink">YOU'VE WON A PRIZE!!!</h2>
+              <div className="text-yellow-500 text-6xl mb-4">🏆</div>
+              <h2 className="text-2xl font-bold text-[hsl(var(--scam-purple))] mb-2">YOU'VE WON A PRIZE!!!</h2>
               <p className="mb-4">Spin the wheel to see what you've won! Prizes include MacBooks, iPhones, and Amazon Gift Cards!</p>
               <div className="mb-4">
                 <img 
