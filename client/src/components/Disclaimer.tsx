@@ -3,9 +3,8 @@ interface DisclaimerProps {
 }
 
 export default function Disclaimer({ onClose }: DisclaimerProps) {
+  // Simple function to close without localStorage
   const handleClose = () => {
-    // Set localStorage to remember that disclaimer has been shown
-    localStorage.setItem('disclaimerShown', 'true');
     onClose();
   };
   

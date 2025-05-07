@@ -28,10 +28,8 @@ export default function Home() {
   const [showDownloadPopup, setShowDownloadPopup] = useState(false);
   const [showPrizePopup, setShowPrizePopup] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
-  const [disclaimerShown, setDisclaimerShown] = useState(() => {
-    // Check if disclaimer has been shown before using localStorage
-    return localStorage.getItem('disclaimerShown') === 'true';
-  });
+  // Single session state to track if disclaimer has been shown
+  const [disclaimerShown, setDisclaimerShown] = useState(false);
 
   // Function to trigger random popups
   const triggerRandomPopup = useCallback(() => {
